@@ -1,51 +1,36 @@
-import { Mail, Twitter, Send, MessageCircle } from 'lucide-react';
+import { Mail, Send, MessageCircle, Twitter } from 'lucide-react';
 
-const socials = [
-  {
-    name: 'X (Twitter)',
-    href: 'https://x.com/Buidlcast',
-    icon: Twitter,
-  },
-  {
-    name: 'Telegram',
-    href: 'https://t.me/+Qk1uQGi4FOdhNTA1',
-    icon: Send,
-  },
-  {
-    name: 'WhatsApp',
-    href: 'https://chat.whatsapp.com/JIiS2kZlEDr0LmtM8eR5EL',
-    icon: MessageCircle,
-  },
-  {
-    name: 'Email',
-    href: 'mailto:buidlcast@gmail.com',
-    icon: Mail,
-  },
-];
+const LINKS = {
+  x: 'https://x.com/Buidlcast',
+  telegram: 'https://t.me/+Qk1uQGi4FOdhNTA1',
+  whatsapp: 'https://chat.whatsapp.com/JIiS2kZlEDr0LmtM8eR5EL',
+  email: 'mailto:buidlcast@gmail.com',
+};
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-xl bg-white/60 dark:bg-black/40 border-b border-black/5 dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-violet-500 via-fuchsia-500 to-emerald-400 shadow-md shadow-fuchsia-500/30 group-hover:scale-105 transition-transform" />
-          <span className="text-xl font-semibold tracking-tight">BUIDL Cast</span>
-        </a>
-        <nav className="flex items-center gap-2">
-          {socials.map((s) => (
-            <a
-              key={s.name}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={s.name}
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-            >
-              <s.icon className="h-4 w-4" />
-              <span className="hidden sm:inline">{s.name}</span>
+    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-black/5">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="h-16 flex items-center justify-between">
+          <a href="#" className="font-semibold tracking-tight text-xl">
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">buidlcast</span>
+          </a>
+          <nav className="flex items-center gap-2">
+            <a aria-label="X (Twitter)" href={LINKS.x} target="_blank" rel="noreferrer" className="p-2 rounded-md hover:bg-black/5 transition">
+              <Twitter className="h-5 w-5" />
             </a>
-          ))}
-        </nav>
+            <a aria-label="Telegram" href={LINKS.telegram} target="_blank" rel="noreferrer" className="p-2 rounded-md hover:bg-black/5 transition">
+              <Send className="h-5 w-5" />
+            </a>
+            <a aria-label="WhatsApp" href={LINKS.whatsapp} target="_blank" rel="noreferrer" className="p-2 rounded-md hover:bg-black/5 transition">
+              <MessageCircle className="h-5 w-5" />
+            </a>
+            <a aria-label="Email" href={LINKS.email} className="ml-2 inline-flex items-center gap-2 rounded-md bg-black text-white px-3 py-2 text-sm font-medium hover:bg-black/90 transition">
+              <Mail className="h-4 w-4" />
+              <span>Contact</span>
+            </a>
+          </nav>
+        </div>
       </div>
     </header>
   );
