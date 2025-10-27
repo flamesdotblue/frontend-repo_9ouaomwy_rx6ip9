@@ -95,7 +95,9 @@ export default function Mission() {
 
 function FeatureCard({ icon, title, desc, gradient }) {
   return (
-    <div className={`relative rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/60 dark:bg-white/5 backdrop-blur-xl overflow-hidden`}>\n      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />\n      <div className="relative">
+    <div className={`relative rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/60 dark:bg-white/5 backdrop-blur-xl overflow-hidden`}>
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+      <div className="relative">
         <div className="h-10 w-10 rounded-xl bg-black text-white dark:bg-white dark:text-black grid place-items-center">
           {icon}
         </div>
